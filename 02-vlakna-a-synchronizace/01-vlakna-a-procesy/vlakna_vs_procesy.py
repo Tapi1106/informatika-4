@@ -43,4 +43,4 @@ if __name__ == "__main__":
     sekvence()
     vlakna()
     procesy()
-    print("Hotovo! 🚀")
+    print("Hotovo")
