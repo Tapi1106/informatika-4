@@ -25,7 +25,7 @@ def sekvence():
 # --- běh s vlákny ---
 def vlakna():
     start = time.time()
-    threads = [threading.Thread(target=vypocet) for _ in range(20)]
+    threads = [threading.Thread(target=vypocet) for _ in range(4)]
     for t in threads:
         t.start()
     for t in threads:
@@ -38,7 +38,7 @@ def procesy(num_procesu=4):
     procs = []
     for i in range(num_procesu):
         # každý proces počítá své „kousky“ opakování
-        p = Process(target=vypocet, args=(10_000_000, i, num_procesu, 20))
+        p = Process(target=vypocet, args=(10_000_000, i, num_procesu, 4))
         procs.append(p)
         p.start()
     for p in procs:
@@ -50,10 +50,5 @@ if __name__ == "__main__":
     print("=== Test výkonu: Sekvence vs Vlákna vs Procesy ===")
     sekvence()
     vlakna()
-<<<<<<< HEAD
-    procesy(num_procesu=4)  # můžeš změnit počet procesů podle CPU
-    print("Hotovo!")
-=======
     procesy()
     print("Hotovo")
->>>>>>> 9c810f9b2652ccb5f201ee2601f7c7b22a00152c
